@@ -104,15 +104,19 @@ public final class JogoController {
     public Item coletarItem(String nomeItemDesejado) {
 
         Area areaAtual = getJogo().identificarAreaAtual();
+        Item itemColetado = null;
 
         if(areaAtual != null) {
             for(Item item : areaAtual.getItens()) {
                 if(item.getNome().toLowerCase().contains(nomeItemDesejado.toLowerCase()) || nomeItemDesejado.toLowerCase().contains(item.getNome().toLowerCase())) {
-                    return item;
+                    itemColetado = item;
                 }
             }
 
-            System.out.println("Este item não foi encontrado !");
+            if( itemColetado != null) {
+                areaAtual.getItens().remove(itemColetado);
+                return itemColetado;
+            }
 
         } else {
             System.out.println("Erro desconhecido ao identificar área atual !");
@@ -148,7 +152,7 @@ public final class JogoController {
         this.grafo.addAresta(origem, destino);
     }
 
-    public Item utilizarItemInventario(String nomeItemDesejado) {
+    public Item identificarItemInventario(String nomeItemDesejado) {
 
         for(Item item : jogador.getItens()) {
             if(item.getNome().toLowerCase().contains(nomeItemDesejado.toLowerCase()) || nomeItemDesejado.toLowerCase().contains(item.getNome().toLowerCase()) ) {

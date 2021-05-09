@@ -5,12 +5,12 @@ import game.models.JogoController;
 public class ItemChave extends Item{
 
     private ItemDesbloqueavel itemDesbloqueavel;
-    private String mensagemDesbloqueiaItem;
+    private String mensagemAoDesbloquear;
 
-    public ItemChave(String nome, String descricao, Boolean rastreavel, ItemDesbloqueavel itemDesbloqueavel, String mensagemDesbloqueiaItem) {
+    public ItemChave(String nome, String descricao, Boolean rastreavel, ItemDesbloqueavel itemDesbloqueavel, String mensagemAoDesbloquear) {
         super(nome, descricao, rastreavel);
         this.itemDesbloqueavel = itemDesbloqueavel;
-        this.mensagemDesbloqueiaItem = mensagemDesbloqueiaItem;
+        this.mensagemAoDesbloquear = mensagemAoDesbloquear;
     }
 
     public ItemDesbloqueavel getItemDesbloqueavel() {
@@ -19,8 +19,8 @@ public class ItemChave extends Item{
 
     @Override
     public void usar() {
-        if(JogoController.getJogo().getAreaAtualJogador().getItens().contains(itemDesbloqueavel)){
-            System.out.println(mensagemDesbloqueiaItem);
+        if(JogoController.getJogo().getAreaAtualJogador().getItens().contains(itemDesbloqueavel) || JogoController.getJogo().getJogador().getItens().contains(itemDesbloqueavel)){
+            System.out.println(mensagemAoDesbloquear);
             System.out.println("O item " + super.getNome() + " foi removido do inventário !");
             itemDesbloqueavel.setDesbloqueado(true);
         }

@@ -1,8 +1,8 @@
 package game.models.item;
 
-public class Caixa extends ItemDesbloqueavel{
+public class Estatua extends ItemDesbloqueavel{
 
-    public Caixa(String nome, String descricao, Boolean rastreavel, String mensagemItemBloqueado) {
+    public Estatua(String nome, String descricao, Boolean rastreavel, String mensagemItemBloqueado) {
         super(nome, descricao, rastreavel, mensagemItemBloqueado);
     }
 

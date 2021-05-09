@@ -18,21 +18,25 @@ public class Jogador extends Personagem{
     }
 
     public void verificarItensEsgotadosOuQuebrados(){
+        List<Item> itensRemovidos = new ArrayList<>();
+
         for(Item item : getItens()){
             if(item instanceof ItemConsumivel) {
                 if(((ItemConsumivel) item).getCargas() <= 0){
-                    getItens().remove(item);
+                    itensRemovidos.add(item);
                 }
             } else if(item instanceof Arma) {
                 if(((Arma) item).getDurabilidade() <= 0){
-                    getItens().remove(item);
+                    itensRemovidos.add(item);
                 }
             } else if (item instanceof ItemChave) {
                 if(((ItemChave) item).getItemDesbloqueavel().getDesbloqueado()){
-                    getItens().remove(item);
+                    itensRemovidos.add(item);
                 }
             }
         }
+
+        getItens().remove(itensRemovidos);
     }
 
     public Area getAreaAtual() {

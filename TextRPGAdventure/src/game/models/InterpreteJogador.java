@@ -8,7 +8,6 @@ import services.SugestaoEscrita;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 public class InterpreteJogador {
 
@@ -90,7 +89,7 @@ public class InterpreteJogador {
                if(comandos.size() > 1){
                    String nomeItem = comandos.get(1);
 
-                   Item item = JogoController.getJogo().utilizarItemInventario(nomeItem);
+                   Item item = JogoController.getJogo().identificarItemInventario(nomeItem);
 
                    if(item != null) {
                        item.usar();
@@ -108,7 +107,7 @@ public class InterpreteJogador {
                if(comandos.size() > 1){
                    String nomeItem = comandos.get(1);
 
-                   Item item = JogoController.getJogo().utilizarItemInventario(nomeItem);
+                   Item item = JogoController.getJogo().identificarItemInventario(nomeItem);
 
                    if(item != null) {
                        if(item instanceof ItemLegivel){
