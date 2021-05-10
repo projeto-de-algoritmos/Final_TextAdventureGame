@@ -126,11 +126,15 @@ public class InterpreteJogador {
                break;
            case ANDAR:
                if(comandos.size() > 1){
-                   String nomeSalaProvavel = SugestaoEscrita.checkLocal(comandos.get(1));
+                   String nomeCompletoLocal = "";
+
+                   for(int i = 1; i < comandos.size(); i++){
+                       nomeCompletoLocal += comandos.get(i);
+                   }
 
                    Area salaAtual = JogoController.getJogo().getAreaAtualJogador();
 
-                   Area areaIndicada = JogoController.getJogo().identificarAreaConectada(salaAtual, nomeSalaProvavel);
+                   Area areaIndicada = JogoController.getJogo().identificarAreaConectada(salaAtual, nomeCompletoLocal);
                    Integer distanciaEntreSalas = null;
 
                    if(areaIndicada != null) {
@@ -153,6 +157,9 @@ public class InterpreteJogador {
            case OLHAR:
                JogoController.getJogo().identificarAreaAtual().mostrarDescricaoDetalhada();
                JogoController.getJogo().incrementarTurnosJogador(1);
+               break;
+           case INVENTARIO:
+               JogoController.getJogo().exibirInventario();
                break;
            default:
                System.out.println("Esta não é uma ação válida !");

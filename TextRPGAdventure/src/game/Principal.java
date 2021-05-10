@@ -36,6 +36,8 @@ public class Principal {
         CaixaItem caixaMascaraMorte = new CaixaItem("Caixa dourada", "Uma grande caixa dourada.", false, "A caixa está trancada. Talvez a chave dela esteja por ai em algum lugar...", mascaraMorte);
         ItemChave chaveCaixaMascaraMorte = new ItemChave("Chave dourada", "Uma pequena chave dourada", false, caixaMascaraMorte, "A chave encaixa perfeitamente na caixa dourada, e um leve 'click' pode ser ouvido. Dentro, há uma máscara de um dos cavaleiros do apocalipse. A máscara da morte.");
 
+        //ItemChavePorta chaveSala2 = new ItemChavePorta("Chave 1", "Uma chave para alguma porta trancada.", false);
+
         Area sala1 = new Area ("Hall de Entrada da Mansão", "O Hall de entrada da Mansão abandonada. Além do chão empoeirado, e o teto extremamente alto, é possível notar quatro estátuas grandes dispostas no centro da sala, que não possuem rosto.");
         Area sala2 = new Area ("Sala 2", "Descrição Sala 2");
         Area sala3 = new Area ("Sala 3", "Descrição Sala 3");
@@ -101,186 +103,145 @@ public class Principal {
         jogo.addArea(sala31);
 
         /* SALA 1*/
-        jogo.conectarArea(sala1, sala2);
-        jogo.conectarArea(sala1, sala3);
-        jogo.conectarArea(sala1, sala21);
-        jogo.conectarArea(sala1, sala9);
+        jogo.conectarArea(sala1, sala2, false);
+        jogo.conectarArea(sala1, sala3, false);
+        jogo.conectarArea(sala1, sala21, false);
+        jogo.conectarArea(sala1, sala9, false);
 
         sala1.addItem(estatuaFome);
         sala1.addItem(estatuaGuerra);
         sala1.addItem(estatuaMorte);
         sala1.addItem(estatuaPeste);
 
-
         /* SALA 2*/
-        jogo.conectarArea(sala2, sala1);
-        jogo.conectarArea(sala2, sala5);
-        jogo.conectarArea(sala2, sala8);
+        jogo.conectarArea(sala2, sala1, false);
+        jogo.conectarArea(sala2, sala5, false);
+        jogo.conectarArea(sala2, sala8, false);
 
         /* SALA 3*/
-        jogo.conectarArea(sala3, sala1);
-        jogo.conectarArea(sala3, sala6);
+        jogo.conectarArea(sala3, sala1, false);
+        jogo.conectarArea(sala3, sala6, false);
 
         /* SALA 4*/
-        jogo.conectarArea(sala4, sala9);
-        jogo.conectarArea(sala4, sala11);
+        jogo.conectarArea(sala4, sala9, false);
+        jogo.conectarArea(sala4, sala11, false);
         sala4.addItem(mascaraPeste);
 
         /* SALA 5*/
-        jogo.conectarArea(sala5, sala2);
+        jogo.conectarArea(sala5, sala2, false);
 
         /* SALA 6*/
-        jogo.conectarArea(sala6, sala3);
+        jogo.conectarArea(sala6, sala3, false);
         sala6.addItem(chaveCaixaMascaraMorte);
 
+
         /* SALA 7*/
-        jogo.conectarArea(sala7, sala13);
+        jogo.conectarArea(sala7, sala13, false);
 
         /* SALA 8*/
-        jogo.conectarArea(sala8, sala2);
+        jogo.conectarArea(sala8, sala2, false);
 
         /* SALA 9*/
-        jogo.conectarArea(sala9, sala1);
-        jogo.conectarArea(sala9, sala10);
-        jogo.conectarArea(sala9, sala4);
+        jogo.conectarArea(sala9, sala1, false);
+        jogo.conectarArea(sala9, sala10, false);
+        jogo.conectarArea(sala9, sala4, false);
 
         /* SALA 10*/
-        jogo.conectarArea(sala10, sala9);
+        jogo.conectarArea(sala10, sala9, false);
 
         /* SALA 11*/
-        jogo.conectarArea(sala11, sala4);
-        jogo.conectarArea(sala11, sala19);
-        jogo.conectarArea(sala11, sala16);
-        jogo.conectarArea(sala11, sala18);
-        jogo.conectarArea(sala11, sala12);
+        jogo.conectarArea(sala11, sala4, false);
+        jogo.conectarArea(sala11, sala19, false);
+        jogo.conectarArea(sala11, sala16, false);
+        jogo.conectarArea(sala11, sala18, false);
+        jogo.conectarArea(sala11, sala12, false);
 
         /* SALA 12*/
-        jogo.conectarArea(sala12, sala11);
-        jogo.conectarArea(sala12, sala13);
-        jogo.conectarArea(sala12, sala14);
-        jogo.conectarArea(sala12, sala15);
+        jogo.conectarArea(sala12, sala11, false);
+        jogo.conectarArea(sala12, sala13, false);
+        jogo.conectarArea(sala12, sala14, false);
+        jogo.conectarArea(sala12, sala15, false);
 
         sala12.addItem(mascaraGuerra);
 
 
         /* SALA 13*/
-        jogo.conectarArea(sala13, sala12);
-        jogo.conectarArea(sala13, sala7);
+        jogo.conectarArea(sala13, sala12, false);
+        jogo.conectarArea(sala13, sala7, false);
 
         /* SALA 14*/
-        jogo.conectarArea(sala14, sala12);
+        jogo.conectarArea(sala14, sala12, false);
 
         /* SALA 15*/
-        jogo.conectarArea(sala15, sala12);
+        jogo.conectarArea(sala15, sala12, false);
 
         /* SALA 16*/
-        jogo.conectarArea(sala16, sala11);
+        jogo.conectarArea(sala16, sala11, false);
 
         /* SALA 17*/
-        jogo.conectarArea(sala17, sala18);
+        jogo.conectarArea(sala17, sala18, false);
 
         /* SALA 18*/
-        jogo.conectarArea(sala18, sala17);
+        jogo.conectarArea(sala18, sala17, false);
 
         /* SALA 19*/
-        jogo.conectarArea(sala19, sala11);
-        jogo.conectarArea(sala19, sala20);
+        jogo.conectarArea(sala19, sala11, false);
+        jogo.conectarArea(sala19, sala20, false);
 
         /* SALA 20*/
-        jogo.conectarArea(sala20, sala19);
+        jogo.conectarArea(sala20, sala19, false);
 
         /* SALA 21*/
-        jogo.conectarArea(sala21, sala1);
-        jogo.conectarArea(sala21, sala22);
+        jogo.conectarArea(sala21, sala1, false);
+        jogo.conectarArea(sala21, sala22, false);
 
         /* SALA 22*/
-        jogo.conectarArea(sala22, sala21);
-        jogo.conectarArea(sala22, sala25);
-        jogo.conectarArea(sala22, sala24);
-        jogo.conectarArea(sala22, sala31);
+        jogo.conectarArea(sala22, sala21, false);
+        jogo.conectarArea(sala22, sala25, false);
+        jogo.conectarArea(sala22, sala24, false);
+        jogo.conectarArea(sala22, sala31, false);
 
         /* SALA 23*/
-        jogo.conectarArea(sala23, sala24);
+        jogo.conectarArea(sala23, sala24, false);
 
         /* SALA 24*/
-        jogo.conectarArea(sala24, sala23);
-        jogo.conectarArea(sala24, sala26);
-        jogo.conectarArea(sala24, sala27);
-        jogo.conectarArea(sala24, sala22);
-        jogo.conectarArea(sala24, sala28);
+        jogo.conectarArea(sala24, sala23, false);
+        jogo.conectarArea(sala24, sala26, false);
+        jogo.conectarArea(sala24, sala27, false);
+        jogo.conectarArea(sala24, sala22, false);
+        jogo.conectarArea(sala24, sala28, false);
 
         /* SALA 25*/
-        jogo.conectarArea(sala25, sala22);
+        jogo.conectarArea(sala25, sala22, false);
 
         /* SALA 26*/
-        jogo.conectarArea(sala26, sala24);
+        jogo.conectarArea(sala26, sala24, false);
 
         /* SALA 27*/
-        jogo.conectarArea(sala27, sala24);
+        jogo.conectarArea(sala27, sala24, false);
         sala27.addItem(mascaraFome);
 
 
         /* SALA 28*/
-        jogo.conectarArea(sala28, sala29);
-        jogo.conectarArea(sala28, sala30);
-        jogo.conectarArea(sala28, sala24);
+        jogo.conectarArea(sala28, sala29, false);
+        jogo.conectarArea(sala28, sala30, false);
+        jogo.conectarArea(sala28, sala24, false);
 
         /* SALA 29*/
-        jogo.conectarArea(sala29, sala28);
+        jogo.conectarArea(sala29, sala28, false);
 
         /* SALA 30*/
-        jogo.conectarArea(sala30, sala28);
+        jogo.conectarArea(sala30, sala28, false);
         sala30.addItem(caixaMascaraMorte);
 
 
         /* SALA 31*/
-        jogo.conectarArea(sala31, sala22);
+        jogo.conectarArea(sala31, sala22, false);
 
-        //Chefe chefe = new Chefe("Chucky", 200, sala31);
-
-        /*
-        Area salaEscura = new Area("Sala", "Você se encontra em uma sala repleta de sombras e pouca iluminação. Suas mãos encontram-se machucadas e você sente o chão frio sob seus pés.");
-
-        ItemDecorativo espelho = new ItemDecorativo("Espelho", "Um espelho quebrado que te mostra seu reflexo borrado.", false);
-
-        List<String> textosDiario = new ArrayList<>();
-
-        textosDiario.add("Ao abrir o diário, você consegue ler entre as folhas sujas e amassadas, a seguinte passagem: ");
-        textosDiario.add("'Estou aqui a mais ou menos 128 dias. Não sei mais se consigo escapar. O carrasco deixa água e restos de comida, e sai. Eu nem ao menos tenho força para tentar enfrentá-lo.'");
-
-        ItemLegivel diario = new ItemLegivel("Diário Velho", "Um velho diário gasto pelo tempo.", false, textosDiario);
-
-        Caixa caixa = new Caixa("Caixa Trancada", "Uma pequena caixa trancada.", false, "Esta caixa está trancada !");
-
-        Rastreador rastreador = new Rastreador("Rastreador", "Uma espécie de radar altamente tecnológico que provavelmente deu muito trabalho para ser desenvolvido.", false);
-
-        salaEscura.addItem(espelho);
-        salaEscura.addItem(diario);
-        salaEscura.addItem(caixa);
-        salaEscura.addItem(rastreador);
-
-        Area banheiroEscuro = new Area("Banheiro", "Um banheiro com cheiro pútrido. O chão parece estar coberto por uma espécie de gosma pegajosa.");
-
-        Area garagem = new Area("Garagem", "Um leve cheiro de óleo de motor, e várias bugigangas espalhadas pelo chão, mas nada muito interessante.");
-        Area porao = new Area("Porão", "Um porão completamente escuro, cheios de madeiras velhas e outras coisas descartadas. Alguma coisa parece brilhar na escuridão.");
-
-        ItemChave chave = new ItemChave("Chave Pequena", "Uma pequena chave reluzente.", true, caixa, "Você conseguiu abrir a caixa !");
-        porao.addItem(chave);
-
-        jogo.addArea(salaEscura);
-        jogo.addArea(banheiroEscuro);
-        jogo.addArea(garagem);
-        jogo.addArea(porao);
-
-        jogo.conectarArea(2, salaEscura, banheiroEscuro);
-        jogo.conectarArea(2, banheiroEscuro, salaEscura);
-        jogo.conectarArea(2,  salaEscura, garagem);
-        jogo.conectarArea(2, garagem, salaEscura);
-        jogo.conectarArea(3, garagem, porao);
-        jogo.conectarArea(3, porao, garagem);
 
         System.out.println("\n\n\n");
 
+    /*
         try {
             Arquivo.imprimeImagemAscii("olhos");
         } catch (FileNotFoundException e) {

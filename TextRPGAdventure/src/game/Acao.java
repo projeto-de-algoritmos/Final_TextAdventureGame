@@ -10,6 +10,7 @@ public enum Acao {
     ANDAR(new String[]{"andar", "mover", "locomover", "ir"}, TipoAcao.ANDAR),
     USAR(new String[]{"usar", "utilizar"}, TipoAcao.USAR),
     LER(new String[]{"ler", "folhear"}, TipoAcao.LER),
+    INVENTARIO(new String[]{"inventario", "itens", "obtidos"}, TipoAcao.INVENTARIO),
     NADA(new String[]{" "}, TipoAcao.NADA);
 
     private String[] aliases;

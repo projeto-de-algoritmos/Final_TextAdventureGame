@@ -1,9 +1,6 @@
 package game.models;
 
-import game.models.item.Arma;
-import game.models.item.Item;
-import game.models.item.ItemChave;
-import game.models.item.ItemConsumivel;
+import game.models.item.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +30,15 @@ public class Jogador extends Personagem{
                 if(((ItemChave) item).getItemDesbloqueavel().getDesbloqueado()){
                     itensRemovidos.add(item);
                 }
+            } else if (item instanceof ItemChavePorta) {
+                if(((ItemChavePorta) item).getUsadoComSucesso()){
+                    itensRemovidos.add(item);
+                }
             }
         }
 
-        getItens().remove(itensRemovidos);
+        for(Item item: itensRemovidos)
+            getItens().remove(item);
     }
 
     public Area getAreaAtual() {

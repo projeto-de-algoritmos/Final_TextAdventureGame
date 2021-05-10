@@ -126,6 +126,12 @@ public class Navegacao {
     public Vertice retornarAreaConectada(Area areaAtual, String areaDesejada) {
         for(Aresta areaConectada : areaAtual.getAdjacencias()){
             if (areaConectada.getDestino().getNome().toLowerCase().contains(areaDesejada.toLowerCase())) {
+
+                if(areaConectada.isCaminhoBloqueado()){
+                    System.out.println("Este caminho está bloqueado. Talvez alguma coisa possa desbloqueá-lo.");
+                    return null;
+                }
+
                 return areaConectada.getDestino();
             }
         }

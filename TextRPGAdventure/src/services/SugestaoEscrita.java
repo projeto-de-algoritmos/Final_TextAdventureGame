@@ -32,7 +32,7 @@ public final class SugestaoEscrita {
             localMaisProvavel = encontraStringMaisProvavel(local, locais);
         }
 
-        System.out.println("Você quis dizer " + localMaisProvavel + "?");
+        //System.out.println("Você quis dizer " + localMaisProvavel + "?");
 
         return localMaisProvavel;
     }
@@ -40,7 +40,7 @@ public final class SugestaoEscrita {
     static public String checkAcao(String acao) {
         String acaoMaisProvavel = encontraStringMaisProvavel(acao, acoes);
 
-        System.out.println("Você quis dizer " + acaoMaisProvavel + "?");
+        //System.out.println("Você quis dizer " + acaoMaisProvavel + "?");
 
         return acaoMaisProvavel;
     }

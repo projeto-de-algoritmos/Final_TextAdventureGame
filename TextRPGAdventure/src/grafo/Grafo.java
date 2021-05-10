@@ -1,5 +1,8 @@
 package grafo;
 
+import game.models.item.ItemChave;
+import game.models.item.ItemChavePorta;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,16 +20,24 @@ public class Grafo{
 		vertices.add(vertice);
 	}
 
-	public Aresta addAresta(Vertice origem, Vertice destino){
-		Aresta aresta = new Aresta(1, origem, destino);
+	public Aresta addAresta(Vertice origem, Vertice destino, boolean caminhoBloqueado){
+		Aresta aresta = new Aresta(1, origem, destino, caminhoBloqueado, null);
 		origem.addAdjacencias(aresta);
 		arestas.add(aresta);
 
 		return aresta;
 	}
 
-	public Aresta addAresta(int peso, Vertice origem, Vertice destino) {
-		Aresta aresta = new Aresta(peso, origem, destino);
+	public Aresta addAresta(Vertice origem, Vertice destino, boolean caminhoBloqueado, ItemChavePorta chaveCaminho){
+		Aresta aresta = new Aresta(1, origem, destino, caminhoBloqueado, chaveCaminho);
+		origem.addAdjacencias(aresta);
+		arestas.add(aresta);
+
+		return aresta;
+	}
+
+	public Aresta addAresta(int distanciaEmTurnos, Vertice origem, Vertice destino, boolean caminhoBloqueado, ItemChavePorta chaveCaminho) {
+		Aresta aresta = new Aresta(distanciaEmTurnos, origem, destino, caminhoBloqueado, chaveCaminho);
 		origem.addAdjacencias(aresta);
 		arestas.add(aresta);
 

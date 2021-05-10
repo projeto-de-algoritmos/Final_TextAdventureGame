@@ -1,6 +1,7 @@
 package game.models;
 
 import game.models.item.Item;
+import game.models.item.ItemChavePorta;
 import grafo.Aresta;
 import grafo.Grafo;
 import grafo.navegacao.Navegacao;
@@ -44,7 +45,7 @@ public final class JogoController {
         while(!jogoAcabou){
             System.out.println("=============================================================");
             // 0 - Printar turno atual
-            System.out.println("Turno atual: " + turnoAtualJogo);
+            //System.out.println("Turno atual: " + turnoAtualJogo);
             //System.out.println("Local do personagem: " + jogador.getAreaAtual().getNome());
             //System.out.println("Local do boss: " + chefe.getAreaAtual().getNome());
 
@@ -144,13 +145,20 @@ public final class JogoController {
         SugestaoEscrita.addLocal(area.getNome());
     }
 
-    public void conectarArea(int distancia, Area origem, Area destino){
-        this.grafo.addAresta(distancia, origem, destino);
+    public void conectarArea(int distancia, Area origem, Area destino, boolean caminhoBloqueado, ItemChavePorta chave){
+        this.grafo.addAresta(distancia, origem, destino, caminhoBloqueado, chave);
+
     }
 
-    public void conectarArea(Area origem, Area destino){
-        this.grafo.addAresta(origem, destino);
+    public void conectarArea(Area origem, Area destino, boolean caminhoBloqueado, ItemChavePorta chave){
+        this.grafo.addAresta(origem, destino, caminhoBloqueado, chave);
+
     }
+
+    public void conectarArea(Area origem, Area destino, boolean caminhoBloqueado){
+        this.grafo.addAresta(origem, destino, caminhoBloqueado);
+    }
+
 
     public Item identificarItemInventario(String nomeItemDesejado) {
 
@@ -163,6 +171,18 @@ public final class JogoController {
         System.out.println("Este item não foi encontrado !");
 
         return null;
+    }
+
+    public void exibirInventario(){
+        if(getJogador().getItens().size() == 0){
+            System.out.println("O inventário está vazio !");
+        } else {
+            System.out.println(" ********************* INVENTÁRIO ********************* ");
+            for(Item item: getJogador().getItens()){
+                System.out.println(item.getNome() + ": " + item.getDescricao());
+            }
+            System.out.println(" ****************************************************** ");
+        }
     }
 
     public void addItem(Item e){
@@ -179,7 +199,7 @@ public final class JogoController {
 
         Vertice verticeFinal = navegacao.retornarAreaConectada(salaAtual, salaFinal);
 
-        if(verticeFinal instanceof Area){
+        if(verticeFinal != null && verticeFinal instanceof Area){
             Area areaFinal =  (Area) verticeFinal;
 
             return areaFinal;
@@ -198,6 +218,19 @@ public final class JogoController {
         }
 
         return null;
+    }
+
+    public String desbloquearCaminho(ItemChavePorta chave){
+        String nomeSalaDesbloqueada = null;
+
+        for(Aresta sala: getAreaAtualJogador().getAdjacencias()){
+            if(sala.getChaveCaminho() != null && sala.getChaveCaminho().equals(chave)){
+                sala.setCaminhoBloqueado(false);
+                nomeSalaDesbloqueada = sala.getDestino().getNome();
+            }
+        }
+
+        return nomeSalaDesbloqueada;
     }
 
     public void imprimeMapaJogo(){
