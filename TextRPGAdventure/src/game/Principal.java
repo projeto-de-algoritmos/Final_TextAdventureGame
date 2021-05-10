@@ -36,7 +36,7 @@ public class Principal {
         CaixaItem caixaMascaraMorte = new CaixaItem("Caixa dourada", "Uma grande caixa dourada.", false, "A caixa está trancada. Talvez a chave dela esteja por ai em algum lugar...", mascaraMorte);
         ItemChave chaveCaixaMascaraMorte = new ItemChave("Chave dourada", "Uma pequena chave dourada", false, caixaMascaraMorte, "A chave encaixa perfeitamente na caixa dourada, e um leve 'click' pode ser ouvido. Dentro, há uma máscara de um dos cavaleiros do apocalipse. A máscara da morte.");
 
-        //ItemChavePorta chaveSala2 = new ItemChavePorta("Chave 1", "Uma chave para alguma porta trancada.", false);
+        ItemChavePorta chaveSala1Para21 = new ItemChavePorta("Chave Porta 1", "Uma chave para alguma porta trancada.", false);
 
         Area sala1 = new Area ("Hall de Entrada da Mansão", "O Hall de entrada da Mansão abandonada. Além do chão empoeirado, e o teto extremamente alto, é possível notar quatro estátuas grandes dispostas no centro da sala, que não possuem rosto.");
         Area sala2 = new Area ("Sala 2", "Descrição Sala 2");
@@ -105,7 +105,7 @@ public class Principal {
         /* SALA 1*/
         jogo.conectarArea(sala1, sala2, false);
         jogo.conectarArea(sala1, sala3, false);
-        jogo.conectarArea(sala1, sala21, false);
+        jogo.conectarArea(sala1, sala21, true);
         jogo.conectarArea(sala1, sala9, false);
 
         sala1.addItem(estatuaFome);
@@ -190,6 +190,7 @@ public class Principal {
 
         /* SALA 20*/
         jogo.conectarArea(sala20, sala19, false);
+        jogo.addItem(chaveSala1Para21);
 
         /* SALA 21*/
         jogo.conectarArea(sala21, sala1, false);
