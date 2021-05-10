@@ -1,21 +1,8 @@
 package game;
 
 import game.models.Area;
-import game.models.Chefe;
-import game.models.Imagens;
 import game.models.JogoController;
 import game.models.item.*;
-import game.servicos.Arquivo;
-import grafo.Grafo;
-import grafo.Vertice;
-import grafo.navegacao.Navegacao;
-import services.SugestaoEscrita;
-
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
 
 public class Principal {
 
@@ -23,20 +10,20 @@ public class Principal {
 
         JogoController jogo = JogoController.getJogo();
 
-        Estatua estatuaPeste = new Estatua("Estátua do Cavaleiro da Peste", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, "Sem o rosto, é difícil fazer alguma coisa.");
-        Estatua estatuaMorte = new Estatua("Estátua do Cavaleiro da Morte", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, "Sem o rosto, é difícil fazer alguma coisa.");
-        Estatua estatuaGuerra = new Estatua("Estátua do Cavaleiro da Guerra", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, "Sem o rosto, é difícil fazer alguma coisa.");
-        Estatua estatuaFome = new Estatua("Estátua do Cavaleiro da Fome", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, "Sem o rosto, é difícil fazer alguma coisa.");
+        Estatua estatuaPeste = new Estatua("Estátua do Cavaleiro da Peste", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, false,"Sem o rosto, é difícil fazer alguma coisa.");
+        Estatua estatuaMorte = new Estatua("Estátua do Cavaleiro da Morte", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, false, "Sem o rosto, é difícil fazer alguma coisa.");
+        Estatua estatuaGuerra = new Estatua("Estátua do Cavaleiro da Guerra", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, false, "Sem o rosto, é difícil fazer alguma coisa.");
+        Estatua estatuaFome = new Estatua("Estátua do Cavaleiro da Fome", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, false, "Sem o rosto, é difícil fazer alguma coisa.");
 
-        ItemChave mascaraPeste = new ItemChave("Máscara do Cavaleiro da Peste", "Uma das máscaras dos cavaleiros do apocalipse.", false, estatuaPeste, "A máscara encaixa perfeitamente, revelando o cavaleiro da Peste.");
-        ItemChave mascaraMorte = new ItemChave("Máscara do Cavaleiro da Morte", "Uma das máscaras dos cavaleiros do apocalipse.", false, estatuaMorte, "A máscara encaixa perfeitamente, revelando o cavaleiro da Morte.");
-        ItemChave mascaraGuerra = new ItemChave("Máscara do Cavaleiro da Guerra", "Uma das máscaras dos cavaleiros do apocalipse.", false, estatuaGuerra, "A máscara encaixa perfeitamente, revelando o cavaleiro da Guerra.");
-        ItemChave mascaraFome = new ItemChave("Máscara do Cavaleiro da Fome", "Uma das máscaras dos cavaleiros do apocalipse.", false, estatuaFome, "A máscara encaixa perfeitamente, revelando o cavaleiro da Fome.");
+        Mascara mascaraPeste = new Mascara("Máscara do Cavaleiro da Peste", "Uma das máscaras dos cavaleiros do apocalipse.", false, true, estatuaPeste,"A máscara encaixa perfeitamente, revelando o cavaleiro da Peste.","A estátua do cavaleiro da Peste.");
+        Mascara mascaraMorte = new Mascara("Máscara do Cavaleiro da Morte", "Uma das máscaras dos cavaleiros do apocalipse.", false, true, estatuaMorte, "A máscara encaixa perfeitamente, revelando o cavaleiro da Morte.", "A estátua do cavaleiro da Morte.");
+        Mascara mascaraGuerra = new Mascara("Máscara do Cavaleiro da Guerra", "Uma das máscaras dos cavaleiros do apocalipse.", false, true, estatuaGuerra, "A máscara encaixa perfeitamente, revelando o cavaleiro da Guerra.", "A estátua do cavaleiro da Guerra.");
+        Mascara mascaraFome = new Mascara("Máscara do Cavaleiro da Fome", "Uma das máscaras dos cavaleiros do apocalipse.", false, true, estatuaFome, "A máscara encaixa perfeitamente, revelando o cavaleiro da Fome.", "A estátua do cavaleiro da Fome.");
 
-        CaixaItem caixaMascaraMorte = new CaixaItem("Caixa dourada", "Uma grande caixa dourada.", false, "A caixa está trancada. Talvez a chave dela esteja por ai em algum lugar...", mascaraMorte);
-        ItemChave chaveCaixaMascaraMorte = new ItemChave("Chave dourada", "Uma pequena chave dourada", false, caixaMascaraMorte, "A chave encaixa perfeitamente na caixa dourada, e um leve 'click' pode ser ouvido. Dentro, há uma máscara de um dos cavaleiros do apocalipse. A máscara da morte.");
+        CaixaItem caixaMascaraMorte = new CaixaItem("Caixa dourada", "Uma grande caixa dourada.", false, true, "A caixa está trancada. Talvez a chave dela esteja por ai em algum lugar...", mascaraMorte);
+        ItemChave chaveCaixaMascaraMorte = new ItemChave("Chave dourada", "Uma pequena chave dourada", false, true, caixaMascaraMorte, "A chave encaixa perfeitamente na caixa dourada, e um leve 'click' pode ser ouvido. Dentro, há uma máscara de um dos cavaleiros do apocalipse. A máscara da morte.");
 
-        ItemChavePorta chaveSala1Para21 = new ItemChavePorta("Chave Porta 1", "Uma chave para alguma porta trancada.", false);
+        ItemChavePorta chaveSala1Para21 = new ItemChavePorta("Chave Porta 1", "Uma chave para alguma porta trancada.", false, true);
 
         Area sala1 = new Area ("Hall de Entrada da Mansão", "O Hall de entrada da Mansão abandonada. Além do chão empoeirado, e o teto extremamente alto, é possível notar quatro estátuas grandes dispostas no centro da sala, que não possuem rosto.");
         Area sala2 = new Area ("Sala 2", "Descrição Sala 2");
@@ -112,6 +99,8 @@ public class Principal {
         sala1.addItem(estatuaGuerra);
         sala1.addItem(estatuaMorte);
         sala1.addItem(estatuaPeste);
+
+        sala1.addItem(mascaraMorte);
 
         /* SALA 2*/
         jogo.conectarArea(sala2, sala1, false);
@@ -190,7 +179,7 @@ public class Principal {
 
         /* SALA 20*/
         jogo.conectarArea(sala20, sala19, false);
-        jogo.addItem(chaveSala1Para21);
+        sala20.addItem(chaveSala1Para21);
 
         /* SALA 21*/
         jogo.conectarArea(sala21, sala1, false);

@@ -6,8 +6,8 @@ public class PocaoCura extends ItemConsumivel{
 
     private final Integer quantidadeCurada;
 
-    public PocaoCura(String nome, String descricao, Integer cargas, Boolean rastreavel, Integer quantidadeCurada){
-        super(nome, descricao, rastreavel, cargas);
+    public PocaoCura(String nome, String descricao, Integer cargas, Boolean rastreavel, Boolean coletavel, Integer quantidadeCurada){
+        super(nome, descricao, rastreavel, coletavel, cargas);
         this.quantidadeCurada = quantidadeCurada;
     }
 

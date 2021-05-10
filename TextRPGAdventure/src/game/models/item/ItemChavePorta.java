@@ -7,8 +7,8 @@ public class ItemChavePorta extends Item{
 
     private Boolean usadoComSucesso;
 
-    public ItemChavePorta(String nome, String descricao, Boolean rastreavel) {
-        super(nome, descricao, rastreavel);
+    public ItemChavePorta(String nome, String descricao, Boolean rastreavel, Boolean coletavel) {
+        super(nome, descricao, rastreavel, coletavel);
         this.usadoComSucesso = false;
     }
 

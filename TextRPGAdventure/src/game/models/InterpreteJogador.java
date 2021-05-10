@@ -73,7 +73,7 @@ public class InterpreteJogador {
                    Item item = JogoController.getJogo().coletarItem(nomeItem);
 
                    if(item != null) {
-                       JogoController.getJogo().addItem(item);
+                       JogoController.getJogo().addItemJogador(item);
                    }
 
                    JogoController.getJogo().incrementarTurnosJogador(1);

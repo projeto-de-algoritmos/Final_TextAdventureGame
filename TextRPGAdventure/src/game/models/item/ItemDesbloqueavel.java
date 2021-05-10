@@ -5,8 +5,8 @@ public abstract class ItemDesbloqueavel extends Item{
     private Boolean desbloqueado;
     private String mensagemItemBloqueado;
 
-    public ItemDesbloqueavel(String nome, String descricao, Boolean rastreavel, String mensagemItemBloqueado) {
-        super(nome, descricao, rastreavel);
+    public ItemDesbloqueavel(String nome, String descricao, Boolean rastreavel, Boolean coletavel, String mensagemItemBloqueado) {
+        super(nome, descricao, rastreavel, coletavel);
         this.desbloqueado = false;
         this.mensagemItemBloqueado = mensagemItemBloqueado;
     }

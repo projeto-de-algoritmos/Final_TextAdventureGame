@@ -115,8 +115,13 @@ public final class JogoController {
             }
 
             if( itemColetado != null) {
-                areaAtual.getItens().remove(itemColetado);
-                return itemColetado;
+                if(itemColetado.isColetavel()){
+                    areaAtual.getItens().remove(itemColetado);
+                    return itemColetado;
+                } else {
+                    System.out.println("Este não é um item coletável. Tente usá-lo mesmo assim !");
+                }
+
             }
 
         } else {
@@ -185,7 +190,7 @@ public final class JogoController {
         }
     }
 
-    public void addItem(Item e){
+    public void addItemJogador(Item e){
         jogador.getItens().add(e);
         System.out.println ("O item " + e.getNome() + " foi coletado com sucesso !");
     }

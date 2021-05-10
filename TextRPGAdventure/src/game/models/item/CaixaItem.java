@@ -6,8 +6,8 @@ public class CaixaItem extends ItemDesbloqueavel{
 
     private Item itemColetavel;
 
-    public CaixaItem(String nome, String descricao, Boolean rastreavel, String mensagemItemBloqueado, Item itemColetavel) {
-        super(nome, descricao, rastreavel, mensagemItemBloqueado);
+    public CaixaItem(String nome, String descricao, Boolean rastreavel, Boolean coletavel, String mensagemItemBloqueado, Item itemColetavel) {
+        super(nome, descricao, rastreavel, coletavel, mensagemItemBloqueado);
         this.itemColetavel = itemColetavel;
     }
 

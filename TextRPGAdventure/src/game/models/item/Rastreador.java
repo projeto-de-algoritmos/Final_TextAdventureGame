@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Rastreador extends Item{
 
-    public Rastreador(String nome, String descricao, Boolean rastreavel) {
-        super(nome, descricao, rastreavel);
+    public Rastreador(String nome, String descricao, Boolean rastreavel, Boolean coletavel) {
+        super(nome, descricao, rastreavel, coletavel);
     }
 
     @Override

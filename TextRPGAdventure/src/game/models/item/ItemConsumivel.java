@@ -5,8 +5,8 @@ public abstract class ItemConsumivel extends Item{
     private Integer cargas;
     private String mensagemConsumir;
 
-    public ItemConsumivel(String nome, String descricao, Boolean rastreavel, Integer cargas){
-        super(nome, descricao, rastreavel);
+    public ItemConsumivel(String nome, String descricao, Boolean rastreavel, Boolean coletavel, Integer cargas){
+        super(nome, descricao, rastreavel, coletavel);
         this.cargas = cargas;
     }
 
