@@ -41,6 +41,24 @@ public class Jogador extends Personagem{
             getItens().remove(item);
     }
 
+    public void verificarIluminacaoEmUso(){
+        boolean possuiItemIluminadorLigado = false;
+
+        for(Item item : getItens()) {
+            if(item instanceof ItemIluminador) {
+                if(((ItemIluminador)item).isLigado()){
+                    possuiItemIluminadorLigado = true;
+                    break;
+                }
+            }
+        }
+
+        if(areaAtual instanceof AreaIluminada){
+            if(possuiItemIluminadorLigado)
+                ((AreaIluminada)areaAtual).setIluminacaoAtual(true);
+        }
+    }
+
     public Area getAreaAtual() {
         return areaAtual;
     }

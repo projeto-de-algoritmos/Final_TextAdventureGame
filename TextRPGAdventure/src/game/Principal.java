@@ -1,12 +1,24 @@
 package game;
 
 import game.models.Area;
+import game.models.AreaIluminada;
 import game.models.JogoController;
 import game.models.item.*;
 
 public class Principal {
 
     public static void main(String[] args) throws Exception{
+
+        System.out.println(" ************************** ESCAPE FROM THE END ************************** ");
+        System.out.println(" Escapar de um lugar sombrio enquanto um inimigo terrível te persegue.\n Essa é sua tarefa. \n Algumas instruções antes de começar.");
+        System.out.println(" Os seguintes comandos estão disponíveis pra você: ");
+        System.out.println(" 1. Olhar ");
+        System.out.println(" 2. Andar ");
+        System.out.println(" 3. Usar ");
+        System.out.println(" 4. Pegar ");
+        System.out.println(" 5. Ler ");
+        System.out.println(" 6. Inventario ");
+        System.out.println(" ************************************************************************* ");
 
         JogoController jogo = JogoController.getJogo();
 
@@ -25,7 +37,9 @@ public class Principal {
 
         ItemChavePorta chaveSala1Para21 = new ItemChavePorta("Chave Porta 1", "Uma chave para alguma porta trancada.", false, true);
 
-        Area sala1 = new Area ("Hall de Entrada da Mansão", "O Hall de entrada da Mansão abandonada. Além do chão empoeirado, e o teto extremamente alto, é possível notar quatro estátuas grandes dispostas no centro da sala, que não possuem rosto.");
+        Lanterna lanterna = new Lanterna("Lanterna", "Uma lanterna velha. Parece que ainda funciona.", false, true, false, 10);
+
+        AreaIluminada sala1 = new AreaIluminada ("Hall de Entrada da Mansão", "O Hall de entrada da Mansão abandonada. Além do chão empoeirado, e o teto extremamente alto, é possível notar quatro estátuas grandes dispostas no centro da sala, que não possuem rosto.", false , "Sala tá muito escura");
         Area sala2 = new Area ("Sala 2", "Descrição Sala 2");
         Area sala3 = new Area ("Sala 3", "Descrição Sala 3");
         Area sala4 = new Area ("Sala 4", "Descrição Sala 4");
@@ -51,7 +65,7 @@ public class Principal {
         Area sala24 = new Area ("Sala 24", "Descrição Sala 24");
         Area sala25 = new Area ("Sala 25", "Descrição Sala 25");
         Area sala26 = new Area ("Sala 26", "Descrição Sala 26");
-        Area sala27 = new Area ("Sala 27", "Descrição Sala 27");
+        AreaIluminada sala27 = new AreaIluminada ("Sala 27", "Descrição Sala 27", false, "A sala está muita escura para identificar qualquer coisa aqui.");
         Area sala28 = new Area ("Sala 28", "Descrição Sala 28");
         Area sala29 = new Area ("Sala 29", "Descrição Sala 29");
         Area sala30 = new Area ("Sala 30", "Descrição Sala 30");
@@ -100,7 +114,7 @@ public class Principal {
         sala1.addItem(estatuaMorte);
         sala1.addItem(estatuaPeste);
 
-        sala1.addItem(mascaraMorte);
+        sala1.addItem(lanterna);
 
         /* SALA 2*/
         jogo.conectarArea(sala2, sala1, false);

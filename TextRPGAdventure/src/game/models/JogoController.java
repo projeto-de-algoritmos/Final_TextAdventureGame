@@ -52,27 +52,32 @@ public final class JogoController {
             // 1 - identifica a área atual
             Area areaAtual = identificarAreaAtual();
 
+            // 2 - verifica e executa ação desejada - interprete
             if(turnoAtualJogador <= turnoAtualJogo){
 
-                // 1 - descreve a área e itens
+                // 3 - descreve a área e itens
                 System.out.println(areaAtual.getDescricao());
                 String comando = scanner.nextLine();
                 interpreteJogador.interpretarString(comando);
             } else {
                 System.out.println("O personagem ainda não finalizou a ação !");
             }
-            // 2 - verifica e executa ação desejada - interprete
 
-            // 3 - Realiza ações do chefe
+            // 4 - Realiza ações do chefe
            if(chefe != null){
                 if(turnoAtualChefe <= turnoAtualJogo){
                     chefe.agir();
                 }
             }
+            // 5 - Reseta os padrões de iluminação
+            resetarIluminacaoPadrao(areaAtual);
 
-            // 4 - verifica se está em batalha
-            // 5 - verifica se o jogo acabou
-            // 6 - verificações de itens e outras coisas
+           // 6 - Verifica se o jogador possui iluminação ligada
+            jogador.verificarIluminacaoEmUso();
+
+            // 7 - verifica se está em batalha
+            // 8 - verifica se o jogo acabou
+            // 9 - verificações de itens e outras coisas
             jogador.verificarItensEsgotadosOuQuebrados();
 
             System.out.println("\n\n\n\n");
@@ -96,6 +101,17 @@ public final class JogoController {
     public void adicionarVida(Integer quantidade){
         Integer vidaAtual = jogador.getVida();
         jogador.setVida(vidaAtual + quantidade);
+    }
+
+    public void resetarIluminacaoPadrao(Area areaAtual){
+        for(Area area: JogoController.getJogo().listarAreasJogo()){
+            if(!areaAtual.equals(area)){
+                if(area instanceof AreaIluminada){
+                    AreaIluminada areaIluminada = (AreaIluminada) area;
+                    areaIluminada.setIluminacaoAtual(areaIluminada.getIluminacaoPadrao());
+                }
+            }
+        }
     }
 
     public Area getAreaAtualJogador(){

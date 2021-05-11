@@ -51,7 +51,7 @@ public class Area extends Vertice {
         return itens;
     }
 
-    public void mostrarDescricaoDetalhada(String textoEspecífico) {
+    public void mostrarDescricaoDetalhada() {
         System.out.println(this.getDescricao());
 
         // ITENS
@@ -77,11 +77,6 @@ public class Area extends Vertice {
             System.out.println("Não há caminhos aparentes para sair daqui.");
         }
 
-        System.out.println(textoEspecífico);
-    }
-
-    public void mostrarDescricaoDetalhada() {
-        mostrarDescricaoDetalhada("");
     }
 
     @Override
