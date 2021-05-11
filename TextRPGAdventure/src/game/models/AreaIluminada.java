@@ -17,9 +17,9 @@ public class AreaIluminada extends Area {
 
     }
 
-    public AreaIluminada(String nome, String descricao, List<Item> itens, List<Inimigo> inimigos, boolean iluminacaoAtual, String descricaoSemIluminacao){
+    public AreaIluminada(String nome, String descricao, List<Item> itens, List<Inimigo> inimigos, boolean iluminacaoPadrao, String descricaoSemIluminacao){
         super(nome, descricao, itens, inimigos);
-        this.iluminacaoAtual = iluminacaoAtual;
+        this.iluminacaoPadrao = iluminacaoPadrao;
         this.descricaoSemIluminacao = descricaoSemIluminacao;
     }
 

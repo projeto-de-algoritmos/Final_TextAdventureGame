@@ -18,8 +18,8 @@ public class Chefe extends Inimigo{
     public void agir(){
 
         if(areaAtual.getNome().equals(JogoController.getJogo().getAreaAtualJogador().getNome())) {
-            System.out.println("O Chucky te estrangulou até a morte ! Você morreu !");
-            JogoController.getJogo().finalizarJogo();
+            String mensagem = "O Chucky te estrangulou até a morte ! Você morreu !";
+            JogoController.getJogo().finalizarJogo(false, mensagem);
         } else {
             andar();
         }

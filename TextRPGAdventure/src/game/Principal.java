@@ -2,8 +2,13 @@ package game;
 
 import game.models.Area;
 import game.models.AreaIluminada;
+import game.models.EstatuaControlador;
 import game.models.JogoController;
 import game.models.item.*;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Principal {
 
@@ -27,6 +32,15 @@ public class Principal {
         Estatua estatuaGuerra = new Estatua("Estátua do Cavaleiro da Guerra", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, false, "Sem o rosto, é difícil fazer alguma coisa.");
         Estatua estatuaFome = new Estatua("Estátua do Cavaleiro da Fome", "A estátua de um dos quatros cavaleiros do apocalipse, sem rosto. ", false, false, "Sem o rosto, é difícil fazer alguma coisa.");
 
+        List<Estatua> estatuas = new ArrayList<>();
+        estatuas.add(estatuaFome);
+        estatuas.add(estatuaMorte);
+        estatuas.add(estatuaPeste);
+        estatuas.add(estatuaGuerra);
+
+        EstatuaControlador estatuaControlador = new EstatuaControlador(estatuas);
+        jogo.addControlador(estatuaControlador);
+
         Mascara mascaraPeste = new Mascara("Máscara do Cavaleiro da Peste", "Uma das máscaras dos cavaleiros do apocalipse.", false, true, estatuaPeste,"A máscara encaixa perfeitamente, revelando o cavaleiro da Peste.","A estátua do cavaleiro da Peste.");
         Mascara mascaraMorte = new Mascara("Máscara do Cavaleiro da Morte", "Uma das máscaras dos cavaleiros do apocalipse.", false, true, estatuaMorte, "A máscara encaixa perfeitamente, revelando o cavaleiro da Morte.", "A estátua do cavaleiro da Morte.");
         Mascara mascaraGuerra = new Mascara("Máscara do Cavaleiro da Guerra", "Uma das máscaras dos cavaleiros do apocalipse.", false, true, estatuaGuerra, "A máscara encaixa perfeitamente, revelando o cavaleiro da Guerra.", "A estátua do cavaleiro da Guerra.");
@@ -35,27 +49,28 @@ public class Principal {
         CaixaItem caixaMascaraMorte = new CaixaItem("Caixa dourada", "Uma grande caixa dourada.", false, true, "A caixa está trancada. Talvez a chave dela esteja por ai em algum lugar...", mascaraMorte);
         ItemChave chaveCaixaMascaraMorte = new ItemChave("Chave dourada", "Uma pequena chave dourada", false, true, caixaMascaraMorte, "A chave encaixa perfeitamente na caixa dourada, e um leve 'click' pode ser ouvido. Dentro, há uma máscara de um dos cavaleiros do apocalipse. A máscara da morte.");
 
-        ItemChavePorta chaveSala1Para21 = new ItemChavePorta("Chave Porta 1", "Uma chave para alguma porta trancada.", false, true);
+        ItemChavePorta chaveSala1Para21 = new ItemChavePorta("Chave 1", "Uma chave para alguma porta trancada.", false, true);
+        ItemChavePorta chaveSala12Para15 = new ItemChavePorta("Chave 2", "Uma chave para alguma porta trancada", false, true);
 
         Lanterna lanterna = new Lanterna("Lanterna", "Uma lanterna velha. Parece que ainda funciona.", false, true, false, 10);
 
-        AreaIluminada sala1 = new AreaIluminada ("Hall de Entrada da Mansão", "O Hall de entrada da Mansão abandonada. Além do chão empoeirado, e o teto extremamente alto, é possível notar quatro estátuas grandes dispostas no centro da sala, que não possuem rosto.", false , "Sala tá muito escura");
+        Area sala1 = new Area ("Hall de Entrada da Mansão", "O Hall de entrada da Mansão abandonada. Além do chão empoeirado, e o teto extremamente alto, é possível notar quatro estátuas grandes dispostas no centro da sala, que não possuem rosto.");
         Area sala2 = new Area ("Sala 2", "Descrição Sala 2");
         Area sala3 = new Area ("Sala 3", "Descrição Sala 3");
-        Area sala4 = new Area ("Sala 4", "Descrição Sala 4");
+        AreaIluminada sala4 = new AreaIluminada ("Sala 4", "Descrição Sala 4", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
         Area sala5 = new Area ("Sala 5", "Descrição Sala 5");
         Area sala6 = new Area ("Sala 6", "Descrição Sala 6");
         Area sala7 = new Area ("Sala 7", "Descrição Sala 7");
-        Area sala8 = new Area ("Sala 8", "Descrição Sala 8");
+        AreaIluminada sala8 = new AreaIluminada ("Sala 8", "Descrição Sala 8", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
         Area sala9 = new Area ("Sala 9", "Descrição Sala 9");
         Area sala10 = new Area ("Sala 10", "Descrição Sala 10");
         Area sala11 = new Area ("Sala 11", "Descrição Sala 11");
-        Area sala12 = new Area ("Sala 12", "Descrição Sala 12");
+        AreaIluminada sala12 = new AreaIluminada ("Sala 12", "Descrição Sala 12", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
         Area sala13 = new Area ("Sala 13", "Descrição Sala 13");
         Area sala14 = new Area ("Sala 14", "Descrição Sala 14");
         Area sala15 = new Area ("Sala 15", "Descrição Sala 15");
         Area sala16 = new Area ("Sala 16", "Descrição Sala 16");
-        Area sala17 = new Area ("Sala 17", "Descrição Sala 17");
+        AreaIluminada sala17 = new AreaIluminada ("Sala 17", "Descrição Sala 17", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
         Area sala18 = new Area ("Sala 18", "Descrição Sala 18");
         Area sala19 = new Area ("Sala 19", "Descrição Sala 19");
         Area sala20 = new Area ("Sala 20", "Descrição Sala 20");
@@ -69,7 +84,7 @@ public class Principal {
         Area sala28 = new Area ("Sala 28", "Descrição Sala 28");
         Area sala29 = new Area ("Sala 29", "Descrição Sala 29");
         Area sala30 = new Area ("Sala 30", "Descrição Sala 30");
-        Area sala31 = new Area ("Sala 31", "Descrição Sala 31");
+        AreaIluminada sala31 = new AreaIluminada ("Sala 31", "Descrição Sala 31", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
 
         jogo.addArea(sala1);
         jogo.addArea(sala2);
@@ -106,7 +121,7 @@ public class Principal {
         /* SALA 1*/
         jogo.conectarArea(sala1, sala2, false);
         jogo.conectarArea(sala1, sala3, false);
-        jogo.conectarArea(sala1, sala21, true);
+        jogo.conectarArea(sala1, sala21, true, chaveSala1Para21);
         jogo.conectarArea(sala1, sala9, false);
 
         sala1.addItem(estatuaFome);
@@ -114,7 +129,10 @@ public class Principal {
         sala1.addItem(estatuaMorte);
         sala1.addItem(estatuaPeste);
 
-        sala1.addItem(lanterna);
+        sala1.addItem(mascaraFome);
+        sala1.addItem(mascaraMorte);
+        sala1.addItem(mascaraGuerra);
+        sala1.addItem(mascaraPeste);
 
         /* SALA 2*/
         jogo.conectarArea(sala2, sala1, false);
@@ -124,6 +142,7 @@ public class Principal {
         /* SALA 3*/
         jogo.conectarArea(sala3, sala1, false);
         jogo.conectarArea(sala3, sala6, false);
+        sala3.addItem(lanterna);
 
         /* SALA 4*/
         jogo.conectarArea(sala4, sala9, false);
@@ -163,7 +182,7 @@ public class Principal {
         jogo.conectarArea(sala12, sala11, false);
         jogo.conectarArea(sala12, sala13, false);
         jogo.conectarArea(sala12, sala14, false);
-        jogo.conectarArea(sala12, sala15, false);
+        jogo.conectarArea(sala12, sala15, true, chaveSala12Para15);
 
         sala12.addItem(mascaraGuerra);
 
@@ -177,6 +196,7 @@ public class Principal {
 
         /* SALA 15*/
         jogo.conectarArea(sala15, sala12, false);
+        sala15.addItem(mascaraPeste);
 
         /* SALA 16*/
         jogo.conectarArea(sala16, sala11, false);
@@ -241,6 +261,7 @@ public class Principal {
 
         /* SALA 31*/
         jogo.conectarArea(sala31, sala22, false);
+        sala31.addItem(chaveSala12Para15);
 
 
         System.out.println("\n\n\n");

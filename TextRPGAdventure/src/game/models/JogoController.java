@@ -26,6 +26,9 @@ public final class JogoController {
     private Integer turnoAtualChefe;
 
     private Boolean jogoAcabou = false;
+    private Boolean vencedor = false;
+
+    private List<Controlador> controladores = new ArrayList<>();
 
     public void iniciarJogo(String nome, Integer vida, Area areaInicial){
         iniciarJogo(nome, vida, areaInicial, null);
@@ -64,7 +67,7 @@ public final class JogoController {
             }
 
             // 4 - Realiza ações do chefe
-           if(chefe != null){
+           if(chefe != null && !jogoAcabou){
                 if(turnoAtualChefe <= turnoAtualJogo){
                     chefe.agir();
                 }
@@ -75,10 +78,20 @@ public final class JogoController {
            // 6 - Verifica se o jogador possui iluminação ligada
             jogador.verificarIluminacaoEmUso();
 
-            // 7 - verifica se está em batalha
-            // 8 - verifica se o jogo acabou
-            // 9 - verificações de itens e outras coisas
+            // 7 - verifica controllers específicas
+            executarControlador();
+
+            // 8 - verificações de itens e outras coisas
             jogador.verificarItensEsgotadosOuQuebrados();
+
+            // 9 - verifica se o jogo acabou
+            if(jogoAcabou){
+                if(vencedor) {
+                    System.out.println("Parabéns, você venceu !");
+                } else {
+                    System.out.println("Fim de jogo.");
+                }
+            }
 
             System.out.println("\n\n\n\n");
             turnoAtualJogo++;
@@ -91,6 +104,17 @@ public final class JogoController {
         }
 
         return jogo;
+    }
+
+    public void executarControlador(){
+        for(Controlador controlador : controladores){
+            if(controlador.isHabilitado())
+                controlador.executar();
+        }
+    }
+
+    public void addControlador(Controlador controlador){
+        this.controladores.add(controlador);
     }
 
     public void removerVida(Integer quantidade){
@@ -296,8 +320,10 @@ public final class JogoController {
         this.turnoAtualChefe += turnosGastos;
     }
 
-    public void finalizarJogo(){
+    public void finalizarJogo(boolean vencedor, String mensagem){
+        this.vencedor = vencedor;
         this.jogoAcabou = true;
+        System.out.println(mensagem);
     }
 
     public Jogador getJogador() {
