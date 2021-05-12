@@ -1,8 +1,10 @@
 package game.models.item;
 
-import game.models.JogoController;
+import engine.item.Item;
+import engine.item.ItemDesbloqueavel;
+import engine.JogoController;
 
-public class CaixaItem extends ItemDesbloqueavel{
+public class CaixaItem extends ItemDesbloqueavel {
 
     private Item itemColetavel;
 

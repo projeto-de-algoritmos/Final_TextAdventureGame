@@ -1,9 +1,10 @@
 package game.models.item;
 
-import game.models.AreaIluminada;
-import game.models.JogoController;
+import engine.area.AreaIluminada;
+import engine.item.ItemIluminador;
+import engine.JogoController;
 
-public class Lanterna extends ItemIluminador{
+public class Lanterna extends ItemIluminador {
 
     private Integer qntBateria;
 

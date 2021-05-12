@@ -1,8 +1,10 @@
 package game.models.item;
 
-import game.models.JogoController;
+import engine.item.ItemChave;
+import engine.item.ItemDesbloqueavel;
+import engine.JogoController;
 
-public class Mascara extends ItemChave{
+public class Mascara extends ItemChave {
 
     private String novaDescricaoDesbloqueado;
 

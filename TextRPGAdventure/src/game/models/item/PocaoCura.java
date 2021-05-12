@@ -1,8 +1,9 @@
 package game.models.item;
 
-import game.models.JogoController;
+import engine.item.ItemConsumivel;
+import engine.JogoController;
 
-public class PocaoCura extends ItemConsumivel{
+public class PocaoCura extends ItemConsumivel {
 
     private final Integer quantidadeCurada;
 

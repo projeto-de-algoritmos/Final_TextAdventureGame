@@ -1,6 +1,8 @@
 package game.models.item;
 
-public abstract class Arma extends Item{
+import engine.item.Item;
+
+public abstract class Arma extends Item {
 
     private Integer dano;
     private Integer durabilidade;

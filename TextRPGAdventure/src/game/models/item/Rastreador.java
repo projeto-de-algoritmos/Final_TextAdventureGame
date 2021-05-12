@@ -1,15 +1,16 @@
 package game.models.item;
 
-import game.models.Area;
-import game.models.JogoController;
-import grafo.Aresta;
-import grafo.Grafo;
-import grafo.Vertice;
+import engine.*;
+import engine.area.Area;
+import engine.grafo.Aresta;
+import engine.grafo.Grafo;
+import engine.grafo.Vertice;
+import engine.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rastreador extends Item{
+public class Rastreador extends Item {
 
     public Rastreador(String nome, String descricao, Boolean rastreavel, Boolean coletavel) {
         super(nome, descricao, rastreavel, coletavel);

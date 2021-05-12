@@ -1,12 +1,13 @@
 package game;
 
-import game.models.Area;
-import game.models.AreaIluminada;
+import engine.*;
+import engine.area.Area;
+import engine.area.AreaIluminada;
+import engine.item.ItemChave;
+import engine.item.ItemChavePorta;
 import game.models.EstatuaControlador;
-import game.models.JogoController;
 import game.models.item.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,8 +83,8 @@ public class Principal {
         Area sala26 = new Area ("Sala 26", "Descrição Sala 26");
         AreaIluminada sala27 = new AreaIluminada ("Sala 27", "Descrição Sala 27", false, "A sala está muita escura para identificar qualquer coisa aqui.");
         Area sala28 = new Area ("Sala 28", "Descrição Sala 28");
-        Area sala29 = new Area ("Sala 29", "Descrição Sala 29");
-        Area sala30 = new Area ("Sala 30", "Descrição Sala 30");
+        AreaIluminada sala29 = new AreaIluminada ("Sala 29", "Descrição Sala 29", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
+        AreaIluminada sala30 = new AreaIluminada ("Sala 30", "Descrição Sala 30", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
         AreaIluminada sala31 = new AreaIluminada ("Sala 31", "Descrição Sala 31", false, "A sala está muita escura para enxergar alguma coisa. Alguma fonte de luz poderia ajudar...");
 
         jogo.addArea(sala1);
@@ -266,14 +267,13 @@ public class Principal {
 
         System.out.println("\n\n\n");
 
-    /*
+        /*
         try {
-            Arquivo.imprimeImagemAscii("olhos");
+            Arquivo.imprimeImagemAscii("lanterna");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
-    */
         jogo.iniciarJogo("Caio", 15, sala1, null);
 
     }

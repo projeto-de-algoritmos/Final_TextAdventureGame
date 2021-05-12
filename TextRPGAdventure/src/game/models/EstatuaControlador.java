@@ -1,8 +1,9 @@
 package game.models;
 
+import engine.Controlador;
+import engine.JogoController;
 import game.models.item.Estatua;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EstatuaControlador extends Controlador {
