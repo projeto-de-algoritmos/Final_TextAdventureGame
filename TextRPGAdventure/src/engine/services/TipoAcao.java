@@ -8,6 +8,7 @@ public enum TipoAcao {
         USAR,
         LER,
         INVENTARIO,
+        COMANDOS,
         NADA;
 
 }

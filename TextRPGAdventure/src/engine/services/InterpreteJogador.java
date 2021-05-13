@@ -161,6 +161,9 @@ public class InterpreteJogador {
            case INVENTARIO:
                JogoController.getJogo().exibirInventario();
                break;
+           case COMANDOS:
+               JogoController.getJogo().exibirAcoesPossiveis();
+               break;
            default:
                System.out.println("Esta não é uma ação válida !");
                break;

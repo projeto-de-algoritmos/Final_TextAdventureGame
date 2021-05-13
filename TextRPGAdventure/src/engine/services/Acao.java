@@ -9,6 +9,7 @@ public enum Acao {
     USAR(new String[]{"usar", "utilizar"}, TipoAcao.USAR),
     LER(new String[]{"ler", "folhear"}, TipoAcao.LER),
     INVENTARIO(new String[]{"inventario", "itens", "obtidos"}, TipoAcao.INVENTARIO),
+    COMANDOS(new String[]{"comandos", "tutorial", "ações", "opções"}, TipoAcao.COMANDOS),
     NADA(new String[]{" "}, TipoAcao.NADA);
 
     private String[] aliases;

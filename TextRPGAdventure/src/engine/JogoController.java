@@ -9,6 +9,7 @@ import engine.item.Item;
 import engine.item.ItemChavePorta;
 import engine.personagem.Chefe;
 import engine.personagem.Jogador;
+import engine.services.Acao;
 import engine.services.InterpreteJogador;
 import engine.navegacao.Navegacao;
 import engine.services.SugestaoEscrita;
@@ -111,6 +112,17 @@ public final class JogoController {
         return jogo;
     }
 
+    public void exibirAcoesPossiveis(){
+        System.out.println(" ************************************************************************* ");
+        System.out.println(" Os seguintes comandos estão disponíveis pra você: ");
+        for(Acao acao: Acao.values()){
+            System.out.println(acao);
+        }
+        System.out.println("Lembre-se: Dependendo do comando, você precisa digitar uma parte do nome do local ou do item ao que se refere.");
+        System.out.println(" ************************************************************************* ");
+
+    }
+
     public void executarControlador(){
         for(Controlador controlador : controladores){
             if(controlador.isHabilitado())
@@ -164,7 +176,7 @@ public final class JogoController {
                     areaAtual.getItens().remove(itemColetado);
                     return itemColetado;
                 } else {
-                    System.out.println("Este não é um item coletável. Tente usá-lo mesmo assim !");
+                    System.out.println("Este não é um item coletável.!");
                 }
 
             }
