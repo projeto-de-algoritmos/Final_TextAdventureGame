@@ -68,3 +68,8 @@ Também é interessante se aprofundar na classe **"InterpreteJogador"**. Ela é 
 7.**comandos:** Permite visualizar todos os comandos disponíveis para o jogador.   
 
 Caso deseje adicionar novas ações aos seus jogadores, apenas adicione um novo elemento ao Enum **"Acao"**, o seu correspondente tipo no enum **"TipoAcao"**, e a respectiva ação a ser executada no método **"agir"** dentro da classe **"InterpreteJogador"**.
+
+## Instruções
+Para executar o jogo "The End" compilado, basta baixar o arquivo .jar na raíz do repositório, e no terminal, executar o seguinte comando:
+
+java -jar TextRPGAdventure.jar
