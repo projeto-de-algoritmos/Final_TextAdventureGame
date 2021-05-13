@@ -4,6 +4,7 @@ import engine.*;
 import engine.area.Area;
 import engine.area.AreaIluminada;
 import engine.item.*;
+import engine.personagem.Chefe;
 import game.models.EstatuaControlador;
 import game.models.item.*;
 import game.servicos.Arquivo;
@@ -300,7 +301,8 @@ public class Principal {
             e.printStackTrace();
         }*/
 
-        jogo.iniciarJogo("Caio", 15, sala1, null);
+        Chefe theEnd = new Chefe("The End", 30, sala31);
+        jogo.iniciarJogo("Caio", 15, sala1, theEnd);
 
     }
 

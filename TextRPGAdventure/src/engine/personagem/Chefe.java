@@ -20,10 +20,14 @@ public class Chefe extends Inimigo {
     public void agir(){
 
         if(areaAtual.getNome().equals(JogoController.getJogo().getAreaAtualJogador().getNome())) {
-            String mensagem = "O Chucky te estrangulou até a morte ! Você morreu !";
+            String mensagem = "O "+ this.getNome() +" te estrangulou até a morte ! Você morreu !";
             JogoController.getJogo().finalizarJogo(false, mensagem);
         } else {
-            andar();
+            if(JogoController.getJogo().getTurnoAtualChefe() % 3 == 0){
+                andar();
+            } else {
+                JogoController.getJogo().incrementarTurnosChefe(1);
+            }
         }
 
     }
